@@ -69,7 +69,15 @@
                  Text="{Binding ElementName=QueryWindow, Mode=TwoWay, Path=Model.CommandText}"
                  IsEnabled="{Binding ElementName=QueryWindow, Mode=OneWay, Path=Model.IsExecuting, Converter={StaticResource InverseBooleanConverter}}"/>
         <GridSplitter Grid.Row="2" Height="5" HorizontalAlignment="Stretch" />
-        <DataGrid Name="gridResults" Grid.Row="3" Margin="10 0 10 10" IsReadOnly="True" SelectionUnit="Cell" ItemsSource="{Binding ElementName=QueryWindow, Mode=OneWay, Path=Model.DataView}"></DataGrid>
+        <DataGrid Name="gridResults" 
+                  Grid.Row="3" 
+                  Margin="10 0 10 10" 
+                  IsReadOnly="True" 
+                  SelectionUnit="Cell" 
+                  EnableColumnVirtualization="True"
+                  EnableRowVirtualization="True"
+                  ItemsSource="{Binding ElementName=QueryWindow, Mode=OneWay, Path=Model.DataView}">
+        </DataGrid>
         <StatusBar Grid.Row="4">
             <StatusBarItem>
                 <TextBlock Text="{Binding ElementName=QueryWindow, Path=Model.DataView.Count, StringFormat='Count: {0}'}"></TextBlock>
