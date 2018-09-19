@@ -9,10 +9,7 @@
         mc:Ignorable="d"
         Title="ODBC Query Tool" 
         Height="800" 
-        Width="1200"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        Width="1200">
     <Window.Resources>
         <local:InverseBooleanConverter x:Key="InverseBooleanConverter" />
         <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
@@ -37,12 +34,11 @@
         </Grid.RowDefinitions>
 
         <Button Grid.Row="0"
-                Height="50" 
                 HorizontalAlignment="Left" 
                 Margin="10 10 10 5" 
+                Padding="10 15"
                 Click="ExecuteQuery_Click" 
-                RenderTransformOrigin="0.4,-14.427"
-                Style="{StaticResource MaterialDesignRaisedLightButton}">
+                RenderTransformOrigin="0.4,-14.427">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>

@@ -17,7 +17,7 @@ namespace OdbcQueryTool
             var settings = new SettingsHelper();
             var connection = new OdbcConnection(settings.ConnectionString);
             executor = new QueryExecutor(connection) { Timeout = settings.Timeout };
-            Model = new QueryModel();
+            Model = new QueryModel() { DataView = QueryExecutor.EmptyDataTable.AsDataView() };
             InitializeComponent();
         }
 
