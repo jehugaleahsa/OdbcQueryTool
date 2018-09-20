@@ -11,9 +11,12 @@
         Height="800" 
         Width="1200">
     <Window.Resources>
-        <local:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+        <local:NegateBooleanConverter x:Key="NegateBooleanConverter" />
         <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-        <local:BooleanToVisibilityConverter x:Key="NegatedBooleanToVisibilityConverter" Invert="True" />
+        <local:ConverterPipeline x:Key="NegatedBooleanToVisibilityConverter">
+            <local:NegateBooleanConverter />
+            <local:BooleanToVisibilityConverter />
+        </local:ConverterPipeline>
     </Window.Resources>
     <Window.Style>
         <Style TargetType="Window">
@@ -67,7 +70,7 @@
                  AcceptsReturn="True"
                  AcceptsTab="True"
                  Text="{Binding ElementName=QueryWindow, Mode=TwoWay, Path=Model.CommandText}"
-                 IsEnabled="{Binding ElementName=QueryWindow, Mode=OneWay, Path=Model.IsExecuting, Converter={StaticResource InverseBooleanConverter}}"/>
+                 IsEnabled="{Binding ElementName=QueryWindow, Mode=OneWay, Path=Model.IsExecuting, Converter={StaticResource NegateBooleanConverter}}"/>
         <GridSplitter Grid.Row="2" Height="5" HorizontalAlignment="Stretch" />
         <DataGrid Name="gridResults" 
                   Grid.Row="3" 
