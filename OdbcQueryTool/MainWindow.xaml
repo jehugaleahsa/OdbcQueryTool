@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OdbcQueryTool"
+        xmlns:convert="clr-namespace:OdbcQueryTool.Converters"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         Name="QueryWindow"
         mc:Ignorable="d"
@@ -11,12 +12,12 @@
         Height="800" 
         Width="1200">
     <Window.Resources>
-        <local:NegateBooleanConverter x:Key="NegateBooleanConverter" />
-        <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-        <local:ConverterPipeline x:Key="NegatedBooleanToVisibilityConverter">
-            <local:NegateBooleanConverter />
-            <local:BooleanToVisibilityConverter />
-        </local:ConverterPipeline>
+        <convert:NegateBooleanConverter x:Key="NegateBooleanConverter" />
+        <convert:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <convert:ConverterPipeline x:Key="NegatedBooleanToVisibilityConverter">
+            <convert:NegateBooleanConverter />
+            <convert:BooleanToVisibilityConverter />
+        </convert:ConverterPipeline>
     </Window.Resources>
     <Window.Style>
         <Style TargetType="Window">

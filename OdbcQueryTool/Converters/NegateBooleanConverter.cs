@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace OdbcQueryTool
+namespace OdbcQueryTool.Converters
 {
     [ValueConversion(typeof(bool), typeof(bool))]
     public class NegateBooleanConverter : IValueConverter

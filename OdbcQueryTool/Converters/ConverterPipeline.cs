@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace OdbcQueryTool
+namespace OdbcQueryTool.Converters
 {
     [ValueConversion(typeof(object), typeof(object))]
     [ContentProperty(nameof(Converters))]
